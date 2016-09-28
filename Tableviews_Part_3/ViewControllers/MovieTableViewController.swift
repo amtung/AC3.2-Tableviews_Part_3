@@ -27,8 +27,7 @@ class MovieTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 200.0
         
-        // converting from array of dictionaries
-        // to an array of Movie structs
+        // converting from array of dictionaries to an array of Movie structs
         var movieContainer: [Movie] = []
         for rawMovie in rawMovieData {
             movieContainer.append(Movie(from: rawMovie))
@@ -171,12 +170,6 @@ class MovieTableViewController: UITableViewController {
                             //6. set the destination's selectedMovie property
                             let selectedMovie: Movie = data[cellIndexPath.row]
                             movieDetailViewController.selectedMovie = selectedMovie
-                            
-//                               //7. update our label & image
-//                               movieDetailViewController.moviePosterImageView.image = UIImage(named: selectedMovie.poster)
-//                               movieDetailViewController.genreLabel.text = "Genre: " + selectedMovie.genre.capitalized
-//                               movieDetailViewController.locationLabel.text = "Locations: " + selectedMovie.locations.joined(separator: ", ")
-//                               movieDetailViewController.summaryFullTextLabel.text = selectedMovie.summary
             }
         }
     }
