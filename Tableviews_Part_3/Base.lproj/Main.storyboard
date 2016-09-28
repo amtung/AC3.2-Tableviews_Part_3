@@ -7,6 +7,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
         </array>
@@ -24,11 +27,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="200" id="NQa-gd-usH" customClass="MovieTableViewCell" customModule="Tableviews_Part_3" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="200" id="NQa-gd-usH" customClass="MovieTableViewCell" customModule="Tableviews_Part_3" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NQa-gd-usH" id="I3u-H0-aWI">
-                                    <frame key="frameInset" width="375" height="199"/>
+                                    <frame key="frameInset" width="328" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aMM-c5-abE">
@@ -67,6 +70,7 @@
                                     <outlet property="movieSummaryLabel" destination="90p-Ty-yn0" id="kra-Rl-R96"/>
                                     <outlet property="movieTitleLabel" destination="FS7-pK-VSu" id="x8I-uc-4Yv"/>
                                     <segue destination="xBf-wG-2cD" kind="show" identifier="MovieDetailViewSegue" id="jzY-Jo-7Al"/>
+                                    <segue destination="LNx-uc-PJl" kind="show" identifier="MovieCastDetailSegue" trigger="accessoryAction" id="L8b-Ci-peY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -113,43 +117,85 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Summary Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzV-d3-V4A">
-                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Summary Text" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmX-LX-Ddx">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="jmX-LX-Ddx" secondAttribute="trailing" constant="8" id="02W-iv-gps"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hto-Jo-ttC" secondAttribute="trailing" constant="8" id="0Uj-QO-j8i"/>
+                            <constraint firstItem="jmX-LX-Ddx" firstAttribute="leading" secondItem="DOE-dR-fus" secondAttribute="leadingMargin" constant="8" id="3Ry-Af-4ls"/>
                             <constraint firstItem="hto-Jo-ttC" firstAttribute="leading" secondItem="DOE-dR-fus" secondAttribute="leadingMargin" constant="8" id="90A-ED-yWL"/>
                             <constraint firstItem="BCf-tT-QoS" firstAttribute="top" secondItem="84x-5J-WPP" secondAttribute="bottom" constant="8" id="APH-MG-pS1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tzV-d3-V4A" secondAttribute="trailing" constant="8" id="Diq-48-ggL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7LZ-LH-Nlf" secondAttribute="trailing" constant="8" id="H0K-M2-uM8"/>
-                            <constraint firstItem="tzV-d3-V4A" firstAttribute="leading" secondItem="DOE-dR-fus" secondAttribute="leadingMargin" constant="8" id="LL5-Lb-oWU"/>
+                            <constraint firstItem="jmX-LX-Ddx" firstAttribute="top" secondItem="7LZ-LH-Nlf" secondAttribute="bottom" constant="8" id="KlR-hA-Msx"/>
                             <constraint firstItem="BCf-tT-QoS" firstAttribute="leading" secondItem="DOE-dR-fus" secondAttribute="leadingMargin" constant="8" id="UMM-E3-2eD"/>
                             <constraint firstItem="84x-5J-WPP" firstAttribute="top" secondItem="iLZ-Dk-tN2" secondAttribute="bottom" constant="8" id="XHf-sB-auu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BCf-tT-QoS" secondAttribute="trailing" constant="8" id="YBh-KN-6lD"/>
                             <constraint firstItem="84x-5J-WPP" firstAttribute="leading" secondItem="DOE-dR-fus" secondAttribute="leadingMargin" constant="8" id="YFn-ar-hhp"/>
-                            <constraint firstItem="OSx-jP-U84" firstAttribute="top" secondItem="tzV-d3-V4A" secondAttribute="bottom" constant="8" id="iRN-qC-19n"/>
                             <constraint firstItem="7LZ-LH-Nlf" firstAttribute="top" secondItem="hto-Jo-ttC" secondAttribute="bottom" constant="8" id="mqF-di-SKT"/>
+                            <constraint firstItem="OSx-jP-U84" firstAttribute="top" secondItem="jmX-LX-Ddx" secondAttribute="bottom" constant="8" id="rYV-kC-eKQ"/>
                             <constraint firstItem="7LZ-LH-Nlf" firstAttribute="leading" secondItem="DOE-dR-fus" secondAttribute="leadingMargin" constant="8" id="s44-pz-xeo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="84x-5J-WPP" secondAttribute="trailing" constant="8" id="tV4-3I-TI3"/>
                             <constraint firstItem="hto-Jo-ttC" firstAttribute="top" secondItem="BCf-tT-QoS" secondAttribute="bottom" constant="8" id="ulu-aY-dYR"/>
-                            <constraint firstItem="tzV-d3-V4A" firstAttribute="top" secondItem="7LZ-LH-Nlf" secondAttribute="bottom" constant="8" id="yiP-Lh-Tjj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="genreLabel" destination="BCf-tT-QoS" id="7TL-Wn-Dbl"/>
                         <outlet property="locationLabel" destination="hto-Jo-ttC" id="Bwl-Id-fYX"/>
                         <outlet property="moviePosterImageView" destination="84x-5J-WPP" id="0qo-eF-4KD"/>
-                        <outlet property="summaryFullTextLabel" destination="tzV-d3-V4A" id="ydx-Bs-HhN"/>
+                        <outlet property="summaryFullTextLabel" destination="jmX-LX-Ddx" id="Syd-3a-3Q4"/>
                         <outlet property="summaryLabel" destination="7LZ-LH-Nlf" id="5Bo-7a-VC1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vWS-ap-5NR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1559" y="64"/>
+        </scene>
+        <!--Movie Cast Detail View Controller-->
+        <scene sceneID="Qfh-g0-4As">
+            <objects>
+                <viewController id="LNx-uc-PJl" customClass="MovieCastDetailViewController" customModule="Tableviews_Part_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ri6-Wr-4dV"/>
+                        <viewControllerLayoutGuide type="bottom" id="1NA-nb-OP5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fUx-AB-Xlz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Cast List:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ss-dH-bbX">
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actor List:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP7-4U-Dll">
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vP7-4U-Dll" firstAttribute="leading" secondItem="fUx-AB-Xlz" secondAttribute="leadingMargin" constant="24" id="CqN-xz-4bo"/>
+                            <constraint firstItem="9ss-dH-bbX" firstAttribute="leading" secondItem="fUx-AB-Xlz" secondAttribute="leadingMargin" constant="8" id="Ns1-OU-Mts"/>
+                            <constraint firstItem="vP7-4U-Dll" firstAttribute="top" secondItem="9ss-dH-bbX" secondAttribute="bottom" constant="8" id="PKg-n6-pdt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9ss-dH-bbX" secondAttribute="trailing" constant="8" id="cal-F3-75K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vP7-4U-Dll" secondAttribute="trailing" constant="8" id="hdJ-1c-qhu"/>
+                            <constraint firstItem="9ss-dH-bbX" firstAttribute="top" secondItem="Ri6-Wr-4dV" secondAttribute="bottom" constant="8" id="n04-zt-7k9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="castListLabel" destination="vP7-4U-Dll" id="4pM-ZI-uJZ"/>
+                        <outlet property="castTitleLabel" destination="9ss-dH-bbX" id="9HT-Vr-jvb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6AD-fk-ETx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1558" y="-591"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IjZ-c6-2Ma">

@@ -149,7 +149,7 @@ class MovieTableViewController: UITableViewController {
      // MARK: - Navigation
 
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //1. check sender fot the cell that was tapped
+        //1. check sender for the cell that was tapped
         if let tappedMovieCell: MovieTableViewCell = sender as? MovieTableViewCell {
             
             //2. check for the right storyboard segue
@@ -171,7 +171,20 @@ class MovieTableViewController: UITableViewController {
                             let selectedMovie: Movie = data[cellIndexPath.row]
                             movieDetailViewController.selectedMovie = selectedMovie
             }
+            
+            if segue.identifier == "MovieCastDetailSegue" {
+                let movieCastDetailViewController: MovieCastDetailViewController = segue.destination as! MovieCastDetailViewController
+                let cellIndexPath = self.tableView.indexPath(for: tappedMovieCell)!
+                guard let genre = Genre(rawValue: cellIndexPath.section),
+                    let data = byGenre(genre) else {
+                        return
+                }
+                let selectedMovie: Movie = data[cellIndexPath.row]
+                movieCastDetailViewController.selectedMovie = selectedMovie
+            }
+        }
+        
         }
     }
-}
+
 

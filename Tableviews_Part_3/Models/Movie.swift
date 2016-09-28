@@ -48,7 +48,7 @@ internal struct Movie {
                 self.cast = []
             }
         }
-
+        
         else {
             self = Movie()
         }

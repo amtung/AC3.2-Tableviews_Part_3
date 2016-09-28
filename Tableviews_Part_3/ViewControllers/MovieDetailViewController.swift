@@ -16,7 +16,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
-    @IBOutlet weak var summaryFullTextLabel: UILabel!
+    @IBOutlet weak var summaryFullTextLabel: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
